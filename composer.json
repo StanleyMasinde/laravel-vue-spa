@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "stannlee/vue-laravel-spa",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Vue Laravel SPA",
     "keywords": [
         "framework",
         "laravel"
