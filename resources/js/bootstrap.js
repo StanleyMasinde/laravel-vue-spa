@@ -6,12 +6,12 @@ window._ = require('lodash');
  * you think works best with your application
  */
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('sw.js').then(registered => {
+    navigator.serviceWorker.register('sw.js').then(_registered => {
         //the service worker has been registered
-        console.log("😁😁 The service worker was successfully registered")
-    }).catch(err => {
+        console.log(`😁😁 The service worker was successfully registered for ${_registered.scope}`)
+    }).catch((_err) => {
         //The registration failed
-        console.error("😓😓😓Oops The service worker registration has failed")
+        console.error(`😓😓😓Oops The service worker registration has failed ${_err}`)
     })
 }
 /**
