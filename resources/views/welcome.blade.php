@@ -8,6 +8,8 @@
 
     <title>Laravel</title>
 
+    <!--Manifest-->
+    <link rel="manifest" href="manifest.json">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <!--styles-->
