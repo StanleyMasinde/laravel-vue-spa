@@ -1,6 +1,20 @@
 window._ = require('lodash');
 
 /**
+ * We'll Register our service worker which is located in the public/sw.js
+ * The service worker is currently empty to allow you to user your own login that
+ * you think works best with your application
+ */
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js').then(registered => {
+        //the service worker has been registered
+        console.log("😁😁 The service worker was successfully registered")
+    }).catch(err => {
+        //The registration failed
+        console.error("😓😓😓Oops The service worker registration has failed")
+    })
+}
+/**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
