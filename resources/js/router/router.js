@@ -11,7 +11,27 @@ Vue.use(Meta)
 
 Vue.use(Router);
 
-export default new Router({
-    mode: "history",
+const router = new Router({
+    mode: 'history',
     routes
 });
+
+/**
+ * Do something before every route navigation
+ * This would be a good place to set the application 
+ * to a loading state
+ */
+router.beforeEach((to, from, next) => {
+    return next(true)
+})
+
+/**
+ * Do something after every root.
+ * This might be a good place to 
+ * stop the loader
+ */
+router.afterEach((to, from) => {
+    return true
+})
+
+export default router

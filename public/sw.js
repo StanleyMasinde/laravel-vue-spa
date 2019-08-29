@@ -4,8 +4,8 @@
  */
 self.addEventListener('fetch', (event) => {
     //use the default fetch handler
-    console.log('Fetch is not being done by the service worker')
-    return;
+    console.log(`fetching ${event.request.url}`)
+    return fetch(event.request.url)
 })
 
 self.addEventListener('install', (event) => {
