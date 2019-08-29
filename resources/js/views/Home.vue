@@ -21,7 +21,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+      title: 'Laravel vue SPA',
+      // override the parent template and just use the above title only
+      titleTemplate: null
+    }
+};
 </script>
 
 

@@ -9,7 +9,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+      title: 'Create an account',
+      // override the parent template and just use the above title only
+      titleTemplate: null
+    }
+};
 </script>
 
 <style>
