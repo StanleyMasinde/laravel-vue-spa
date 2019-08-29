@@ -4,7 +4,7 @@
  */
 //This function is used to resolve your views in the views directory
 const path = (_view) => {
-    require(`../views/${_view}.vue`)
+    require(`../views/${_view}.vue`).default
 }
 /**
  * Register your routes here
