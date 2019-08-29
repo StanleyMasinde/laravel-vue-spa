@@ -13,9 +13,11 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <!--styles-->
-    <link rel="stylesheet" href={{ mix('css/app.css') }}>
+    <link rel="stylesheet" href="{{ mix( 'css/app.css') }}">
     <!--scripts-->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/vendor.js') }}" defer></script>
+    <script src="{{ mix('js/manifest.js') }}" defer></script>
 </head>
 
 <body>
