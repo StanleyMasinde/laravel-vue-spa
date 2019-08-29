@@ -9,8 +9,10 @@
 export default {
   data() {
     return {
-      loading: false
+      loading: this.$store.state.loading
     }
+  }, mounted() {
+    //
   }
 };
 </script>
