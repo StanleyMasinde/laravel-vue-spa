@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('{path}', function () {
-    return view('welcome');
-})->where('path', '(.*)');
+Route::get('{path}', 'Application\MainController@index')->where('path', '(.*)');

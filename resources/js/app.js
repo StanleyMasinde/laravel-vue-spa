@@ -10,8 +10,14 @@ import Vue from "vue";
 import App from './App.vue';
 import "@babel/polyfill";
 
+/**
+ * Register any components that are not part of the views
+ * 
+ * @return {Vue}
+ */
+Vue.component('loader', require('./components/Loader.vue').default)
 
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount("#app");
