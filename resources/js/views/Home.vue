@@ -84,7 +84,8 @@ body {
   margin-bottom: 30px;
 }
 .link-active {
-  color: green !important;
+  color: teal !important;
   text-decoration: underline!important;
+  font-weight: 900!important;
 }
 </style>
