@@ -8,10 +8,18 @@ require('./bootstrap');
 import router from './router/router'
 import Vue from "vue";
 import App from './App.vue';
+import store from './vuex/store'
 import "@babel/polyfill";
 
+/**
+ * Register any components that are not part of the views
+ * 
+ * @return {Vue}
+ */
+Vue.component('loader', require('./components/Loader.vue').default)
 
 new Vue({
-  router,
-  render: h => h(App)
+    store,
+    router,
+    render: h => h(App)
 }).$mount("#app");

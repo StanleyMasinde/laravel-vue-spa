@@ -4,6 +4,12 @@
 Laravel SPA scaffolding is built on [Laravel](https://laravel.com/docs/) Framework
 It makes it easy to to build single page applications using [Vuejs](https://vuejs.org) and Vue-router.
 
+## Features
+1. Single Page application
+2. Progrsssive Web app ready
+3. No CSS framework
+4. *more like authentication coming soon*
+
 ## Getting started 
 1. Create a project with composer `composer create-project stannlee/vue-laravel-spa <Project-Name>`
 2. At this point when you run `php artisan serve` the app will run at port 8000
@@ -15,11 +21,16 @@ We will be working with the resources folder
 ```
 resources
 |---js
+|   | 
+|   App.vue
+|   |
 |   |--router
 |   |    |
 |   |    |---router.js
+|   |    |---index.js
 |   |
 |   |--views
+|   |    |-Home.vue
 |   |
 |   |--app.js
 |   |--bootstrap.js
@@ -30,6 +41,7 @@ When contributing to this repository, please first discuss the change you wish t
 email, or any other method with the owners of this repository before making a change. 
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
+
 
 ## Pull Request Process
 
