@@ -7,6 +7,7 @@
 require('./bootstrap');
 import router from './router/router'
 import Vue from "vue";
+import vuetify from './vuetify/vuetify'
 import App from './App.vue';
 import store from './vuex/store'
 import "@babel/polyfill";
@@ -21,5 +22,6 @@ Vue.component('loader', require('./components/Loader.vue').default)
 new Vue({
     store,
     router,
+    vuetify,
     render: h => h(App)
 }).$mount("#app");
