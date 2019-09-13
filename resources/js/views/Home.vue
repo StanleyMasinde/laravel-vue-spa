@@ -19,6 +19,7 @@ export default {
   metaInfo: {
     title: "Laravel vue SPA",
     // override the parent template and just use the above title only
+    description: 'Welcome to Vue Laravel SPA',
     titleTemplate: null
   }
 };

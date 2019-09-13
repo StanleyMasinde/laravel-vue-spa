@@ -3,24 +3,15 @@
     <v-navigation-drawer v-model="drawer" app :dark="dark">
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="title" v-text="app_name">
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            awesome app
-          </v-list-item-subtitle>
+          <v-list-item-title class="title" v-text="app_name"></v-list-item-title>
+          <v-list-item-subtitle>awesome app</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-list
-        dense
-        nav
-      >
-        <v-list-item
-          link
-          to="/"
-        >
+      <v-list dense nav>
+        <v-list-item link to="/">
           <v-list-item-icon>
             <v-icon>mdi-home</v-icon>
           </v-list-item-icon>
@@ -30,10 +21,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item
-          link
-          to="/login"
-        >
+        <v-list-item link to="/login">
           <v-list-item-icon>
             <v-icon>mdi-login</v-icon>
           </v-list-item-icon>
@@ -43,10 +31,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item
-          link
-          to="/register"
-        >
+        <v-list-item link to="/register">
           <v-list-item-icon>
             <v-icon>mdi-account-plus</v-icon>
           </v-list-item-icon>
@@ -89,6 +74,13 @@
 
 <script>
 export default {
+  metaInfo: {
+    // if no subcomponents specify a metaInfo.title, this title will be used
+    title: "Welcome",
+    // all titles will be injected into this template
+    titleTemplate: "%s | Vue laravel SPA",
+    meta: [{ name: "theme-color", content: '#424242' }]
+  },
   data() {
     return {
       drawer: false

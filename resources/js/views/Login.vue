@@ -40,7 +40,6 @@ export default {
   metaInfo: {
     title: "Login into your account",
     // override the parent template and just use the above title only
-    titleTemplate: null
   },
   computed: {
     dark() {
