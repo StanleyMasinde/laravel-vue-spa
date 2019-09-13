@@ -5,10 +5,13 @@ Laravel SPA scaffolding is built on [Laravel](https://laravel.com/docs/) Framewo
 It makes it easy to to build single page applications using [Vuejs](https://vuejs.org) and Vue-router.
 
 ## Features
-1. Single Page application
-2. Progrsssive Web app ready
-3. No CSS framework
-4. *more like authentication coming soon*
+1. Single Page application (Vue router)
+2. Progressive Web app ready using workbox
+3. [Vuetify](https://vuetifyjs.com) ready!
+4. Laravel 6
+5. State management with [Vuex](https://vuex.vuejs.org)
+6. Authentication (Coming soon)
+
 
 ## Getting started 
 1. Create a project with composer `composer create-project stannlee/vue-laravel-spa <Project-Name>`
@@ -23,17 +26,21 @@ resources
 |---js
 |   | 
 |   App.vue
+|   app.js
+|   bootstrap.js
+|   |
+|   |--components
 |   |
 |   |--router
 |   |    |
-|   |    |---router.js
-|   |    |---index.js
+|   |    router.js
+|   |    index.js
 |   |
 |   |--views
-|   |    |-Home.vue
+|   |    Home.vue
+|   |    Login.vue
+|   |    Register.vue
 |   |
-|   |--app.js
-|   |--bootstrap.js
 ```
 # Contributing
 
