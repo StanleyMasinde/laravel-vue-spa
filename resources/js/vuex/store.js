@@ -9,12 +9,8 @@ const store = new Vuex.Store({
         dark: true,
         app_name: process.env.MIX_APP_NAME
     }, mutations: {
-        changetheme() {
-            if (this.dark = true) {
-                this.dark = false
-            } else {
-                this.dark = true
-            }
+        changetheme(state) {
+            state.dark = !state.dark
         }
     }
 })

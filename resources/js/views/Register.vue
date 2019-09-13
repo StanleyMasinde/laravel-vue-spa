@@ -1,11 +1,5 @@
 <template>
   <div class="flex-center position-ref full-height">
-    <div class="top-right links">
-      <router-link exact-active-class="link-active" to="/">Home</router-link>
-      <router-link exact-active-class="link-active" to="/login">Login</router-link>
-      <router-link exact-active-class="link-active" to="/register">Register</router-link>
-    </div>
-
     <div data-form-section class="content">
       <form @submit.prevent action="/register" method="post">
         <label>Name</label>

@@ -1,11 +1,5 @@
 <template>
   <div class="flex-center position-ref full-height">
-    <div class="top-right links">
-      <router-link exact-active-class="link-active" to="/">Home</router-link>
-      <router-link exact-active-class="link-active" to="/login">Login</router-link>
-      <router-link exact-active-class="link-active" to="/register">Register</router-link>
-    </div>
-
     <div class="content">
       <div class="title m-b-md">Laravel Vue spa</div>
       <div class="links">
@@ -23,10 +17,10 @@
 <script>
 export default {
   metaInfo: {
-      title: 'Laravel vue SPA',
-      // override the parent template and just use the above title only
-      titleTemplate: null
-    }
+    title: "Laravel vue SPA",
+    // override the parent template and just use the above title only
+    titleTemplate: null
+  }
 };
 </script>
 
@@ -34,58 +28,53 @@ export default {
 <style scoped>
 html,
 body {
-  background-color: #fff;
-  color: #636b6f;
-  font-family: "Nunito", sans-serif;
-  font-weight: 200;
-  height: 100vh;
-  margin: 0;
+  background-color: #fff !important;
+  color: #636b6f !important;
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 200 !important;
+  height: 100vh !important;
+  margin: 0 !important;
 }
 
 .full-height {
-  height: 100vh;
+  height: 100vh !important;
 }
 
 .flex-center {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .position-ref {
-  position: relative;
+  position: relative !important;
 }
 
 .top-right {
-  position: absolute;
-  right: 10px;
-  top: 18px;
+  position: absolute !important;
+  right: 10px !important;
+  top: 18px !important;
 }
 
 .content {
-  text-align: center;
+  text-align: center !important;
 }
 
 .title {
-  font-size: 84px;
+  font-size: 84px !important;
 }
 
 .links > a {
-  color: #636b6f;
-  padding: 0 25px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1rem;
-  text-decoration: none;
-  text-transform: uppercase;
+  color: #636b6f !important;
+  padding: 0 25px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1rem !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
 }
 
 .m-b-md {
   margin-bottom: 30px;
-}
-.link-active {
-  color: teal !important;
-  text-decoration: underline!important;
-  font-weight: 900!important;
 }
 </style>

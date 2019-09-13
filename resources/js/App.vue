@@ -9,6 +9,15 @@
     <v-app-bar app :dark="dark">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title v-text="app_name"></v-toolbar-title>
+
+      <div class="flex-grow-1"></div>
+
+      <v-btn class="text-capitalize" text to="/">Home Page</v-btn>
+      <v-btn class="text-capitalize" text to="/login">Login</v-btn>
+      <v-btn class="text-capitalize" text to="/register">Register</v-btn>
+      <v-btn icon @click="toggleTheme">
+        <v-icon>mdi-theme-light-dark</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-content>
@@ -29,6 +38,11 @@ export default {
     return {
       drawer: false
     };
+  },
+  methods: {
+    toggleTheme() {
+      this.$store.commit("changetheme");
+    }
   },
   computed: {
     app_name() {
