@@ -1,20 +1,57 @@
 <template>
-  <div class="flex-center position-ref full-height">
-    <div data-form-section class="content">
-      <form @submit.prevent action="/register" method="post">
-        <label>Name</label>
-        <input class="app-input" v-model="name" type="text" name="name" />
-        <label>Email</label>
-        <input class="app-input" v-model="email" type="text" name="email" />
-        <label>Choose password</label>
-        <input class="app-input" v-model="password" type="text" name="password" />
-        <label>Confirm Password</label>
-        <input class="app-input" v-model="password_confirm" type="text" name="password_confirm" />
+  <main>
+    <v-layout justify-center fill-height align-center mt-5>
+      <v-flex xs12 md5>
+        <v-alert
+          type="warning"
+          :value="warning"
+        >Ooops This Function is not ready yet have to create your own</v-alert>
+        <v-form>
+          <v-text-field
+            prepend-icon="mdi-email"
+            name="name"
+            label="Full name"
+            id="registerName"
+            type="text"
+            :loading="loading"
+          ></v-text-field>
+          <v-text-field
+            prepend-icon="mdi-account"
+            name="email"
+            label="Email"
+            id="loginEmail"
+            type="email"
+            :loading="loading"
+          ></v-text-field>
+          <v-text-field
+            name="password"
+            label="Enter your password"
+            min="8"
+            :append-icon="showValue ? 'mdi-eye-off' : 'mdi-eye'"
+            @click:append="showValue = !showValue"
+            counter
+            :type="showValue ? 'password' : 'text'"
+            prepend-icon="mdi-textbox-password"
+            :loading="loading"
+          ></v-text-field>
 
-        <button data-sign>Sign Up</button>
-      </form>
-    </div>
-  </div>
+          <v-text-field
+            name="password_confrim"
+            label="Confirm Password"
+            min="8"
+            :append-icon="showValue ? 'mdi-eye-off' : 'mdi-eye'"
+            @click:append="showValue = !showValue"
+            counter
+            :type="showValue ? 'password' : 'text'"
+            prepend-icon="mdi-textbox-password"
+            :loading="loading"
+          ></v-text-field>
+
+          <v-btn @click="register" large :loading="loading" :dark="dark">Sign up</v-btn>
+        </v-form>
+      </v-flex>
+    </v-layout>
+  </main>
 </template>
 
 <script>
@@ -29,37 +66,32 @@ export default {
       name: null,
       email: null,
       password: null,
-      password_confirm: null
+      password_confirm: null,
+      showValue: true,
+      warning: false
     };
+  },
+  methods: {
+    register() {
+      this.warning = true;
+      setTimeout(() => {
+        this.warning = false;
+      }, 3000);
+    }
+  },
+  computed: {
+    dark() {
+      return this.$store.state.dark;
+    },
+    loading() {
+      return this.$store.state.loading;
+    }
   }
 };
 </script>
 
-<style lang="scss">
-input {
-  &.app-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-}
-div {
-  &[data-form-section] {
-    text-align: left!important;
-    width: 40%!important;
-  }
-}
-button {
-  &[data-sign] {
-    padding: 15px;
-    background-color: teal;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
+<style scoped>
+main {
+  height: 70vh !important;
 }
 </style>

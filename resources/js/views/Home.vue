@@ -25,7 +25,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
 html,
 body {
   background-color: #fff !important;
@@ -37,7 +37,7 @@ body {
 }
 
 .full-height {
-  height: 100vh !important;
+  height: 70vh !important;
 }
 
 .flex-center {
