@@ -14,19 +14,26 @@ const path = _view => {
 let routes = [
     {
         path: "/",
-        name: "home",
-        component: path("Home")
+        name: "Welcome",
+        component: path("Welcome")
     },
     {
         path: "/login",
         name: "Login",
-        component: path("Login")
+        component: path("Login"),
+        beforeEnter: middleware.guest
     },
     {
         path: "/register",
         name: "register",
         component: () => import("../views/Register.vue"),
         beforeEnter: middleware.guest
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: path('Home'),
+        beforeEnter: middleware.auth
     }
 ];
 

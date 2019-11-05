@@ -11,6 +11,9 @@ import vuetify from './vuetify/vuetify'
 import App from './App.vue';
 import store from './vuex/store'
 import "@babel/polyfill";
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate);
 
 /**
  * Register any components that are not part of the views

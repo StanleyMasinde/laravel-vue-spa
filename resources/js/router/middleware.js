@@ -3,14 +3,17 @@
  */
 
 let middlewares = {
-    auth: (to, from,  next) => {
-        //
+    auth: (to, from, next) => {
+        // Show login page if the user is not logged in
+        if (window.auth == 'false') next('/login')
+        else next()
     },
-    guest: (to, from,  next) => {
-        return next(true)
+    guest: (to, from, next) => {
+        if (window.auth == 'true') next('/')
+        else next()
     }
 }
 
 
 
-export default middlewares = middlewares
+export default middlewares

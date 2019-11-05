@@ -1,22 +1,25 @@
 <template>
   <main>
     <v-layout justify-center fill-height align-center mt-5>
-      <v-flex xs12 md5>
+      <v-flex xs12 md4>
         <v-alert
           type="warning"
           :value="warning"
-        >Ooops This Function is not ready yet have to create your own</v-alert>
+        >Login failed</v-alert>
         <v-form>
           <v-text-field
             prepend-icon="mdi-email"
-            name="name"
+            name="email"
             label="Email"
             id="loginEmail"
             type="email"
             :loading="loading"
+            v-model="email"
+             v-validate="'required|email'"
+            :error-messages="errors.collect('email')"
           ></v-text-field>
           <v-text-field
-            name="name"
+            name="password"
             label="Enter your password"
             min="8"
             :append-icon="showValue ? 'mdi-eye-off' : 'mdi-eye'"
@@ -26,6 +29,9 @@
             :type="showValue ? 'password' : 'text'"
             prepend-icon="mdi-textbox-password"
             :loading="loading"
+            v-model="password"
+            v-validate="'required'"
+            :error-messages="errors.collect('password')"
           ></v-text-field>
 
           <v-btn @click="login" large :loading="loading" :dark="dark">Login</v-btn>
@@ -38,7 +44,7 @@
 <script>
 export default {
   metaInfo: {
-    title: "Login into your account",
+    title: "Login into your account"
     // override the parent template and just use the above title only
   },
   computed: {
@@ -51,10 +57,21 @@ export default {
   },
   methods: {
     login() {
-      this.warning = true;
-      setTimeout(() => {
-        this.warning = false;
-      }, 3000);
+      axios
+        .post("login", {
+          email: this.email,
+          password: this.password
+        })
+        .then(res => {
+          // the login was probaly correct
+          location.replace('/')
+        })
+        .catch(err => {
+          this.warning = true;
+          setTimeout(() => {
+            this.warning = false;
+          }, 5000);
+        });
     }
   },
   data() {
@@ -62,7 +79,8 @@ export default {
       email: null,
       password: null,
       showValue: true,
-      warning: false
+      warning: false,
+      error_message: null
     };
   }
 };

@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@babel/polyfill": "^7.4.4",
+        "vee-validate": "^2.2.4",
         "vue-meta": "^2.2.1",
         "vue-router": "^3.1.2",
         "vuetify": "^2.0.17",

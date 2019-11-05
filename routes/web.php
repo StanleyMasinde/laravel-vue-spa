@@ -11,4 +11,6 @@
 |
 */
 
+Auth::routes();
+Route::get('user-info', 'Application\ApiController@getUserInfo');
 Route::get('{path}', 'Application\MainController@index')->where('path', '(.*)');
