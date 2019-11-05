@@ -27,7 +27,7 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>Welcome</v-list-item-title>
+            <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -55,7 +55,7 @@
 
     <v-app-bar app :dark="dark">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Makaazi</v-toolbar-title>
+      <v-toolbar-title>VLSPA</v-toolbar-title>
 
       <div class="flex-grow-1"></div>
 
