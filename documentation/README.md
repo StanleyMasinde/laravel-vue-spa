@@ -2,7 +2,10 @@
 
 ## What is this?
 Laravel SPA scaffolding is built on [Laravel](https://laravel.com/docs/) Framework
-It makes it easy to to build single page applications using [Vuejs](https://vuejs.org) and Vue-router.
+It makes it easy to to build single page applications using [Vuejs](https://vuejs.org) and [Vue-router](https://router.vuejs.org/).
+
+A *single-page application (SPA)* is a [web application](https://en.wikipedia.org/wiki/Web_application) or [web site](https://en.wikipedia.org/wiki/Web_site) that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server. This approach avoids interruption of the [user experience](https://en.wikipedia.org/wiki/User_experience) between successive pages, making the application behave more like a [desktop application](https://en.wikipedia.org/wiki/Desktop_application). In an SPA, either all necessary code – HTML, JavaScript, and CSS – is retrieved with a single page load,[1] or the appropriate resources are [dynamically loaded](https://en.wikipedia.org/wiki/Dynamic_loading) and added to the page as necessary, usually in response to user actions. The page does not reload at any point in the process, nor does control transfer to another page, although the [location hash](https://en.wikipedia.org/wiki/Fragment_identifier) or the [HTML5 History API](https://en.wikipedia.org/wiki/Comparison_of_layout_engines_(HTML5)#APIs) can be used to provide the perception and navigability of separate logical pages in the application.[2] Interaction with the single-page application often involves dynamic communication with the [web server](https://en.wikipedia.org/wiki/Web_server) behind the scenes.
+**source wikipaedia**
 
 ## Features
 1. Single Page application (Vue router)
@@ -10,14 +13,18 @@ It makes it easy to to build single page applications using [Vuejs](https://vuej
 3. [Vuetify](https://vuetifyjs.com) ready!
 4. Laravel 6
 5. State management with [Vuex](https://vuex.vuejs.org)
-6. Authentication (Coming soon)
+6. Authentication (Almost done)
 
 
 ## Getting started 
 1. Create a project with composer `composer create-project stannlee/vue-laravel-spa <Project-Name>`
-2. At this point when you run `php artisan serve` the app will run at port 8000
-3. Write your routes in the router.js file (See the directory structure below). Please refer to vue router [docs](https://router.vuejs.org/)
-4. You can place your views anywhere or use the views folder
+2. Add your database details to the `.env` file and run `php artisan migrate`
+3. At this point when you run `php artisan serve` the app will run at port 8000
+4. Write your routes in the router.js file (See the directory structure below). Please refer to vue router [docs](https://router.vuejs.org/)
+5. You can place your views anywhere or use the views folder
+*********************************************************
+*Currently only the login and register functionality work without proper feedback to the user*
+*Also the router is now in [hash mode](https://router.vuejs.org/guide/essentials/history-mode.html) for convinience*
 
 ## Directory Structure
 We will be working with the resources folder
@@ -37,6 +44,7 @@ resources
 |   |    index.js
 |   |
 |   |--views
+|   |    Landing.vue
 |   |    Home.vue
 |   |    Login.vue
 |   |    Register.vue
