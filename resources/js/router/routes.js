@@ -4,8 +4,7 @@
  */
 import middleware from "./middleware";
 const path = _view => {
-    return require(/* webpackChunkName: 'view on' */ `../views/${_view}.vue`)
-        .default;
+    return () => import(/* webpackChunkName: 'views/view' */ `../views/${_view}.vue`)
 };
 /**
  * Register your routes here
@@ -26,7 +25,7 @@ let routes = [
     {
         path: "/register",
         name: "register",
-        component: () => import("../views/Register.vue"),
+        component: path('Register'),
         beforeEnter: middleware.guest
     },
     {
