@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"js/example-component":"js/example-component","views/view0":"views/view0","views/view1":"views/view1","views/view2":"views/view2"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"js/example-component":"js/example-component","views/view0":"views/view0"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -53307,17 +53307,9 @@ var routes = [{
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./Home.vue": [
-		"./resources/js/views/Home.vue",
+	"./Welcome.vue": [
+		"./resources/js/views/Welcome.vue",
 		"views/view0"
-	],
-	"./Login.vue": [
-		"./resources/js/views/Login.vue",
-		"views/view1"
-	],
-	"./Register.vue": [
-		"./resources/js/views/Register.vue",
-		"views/view2"
 	]
 };
 function webpackAsyncContext(req) {
