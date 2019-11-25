@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["views/view0"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Welcome.vue?vue&type=script&lang=js&":
@@ -111,3 +112,6 @@ __webpack_require__.r(__webpack_exports__);
 /***/ })
 
 }]);
+=======
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{gcjV:function(e,t,s){"use strict";s.r(t);var n={computed:{user:function(){return this.$store.state.user}}},r=s("KHd+"),i=Object(r.a)(n,(function(){var e=this.$createElement;return(this._self._c||e)("h1",[this._v("Awesome 🤠🤠 You are logged in as "+this._s(this.user.name)+". Please consider contributing to make this project better. 😊")])}),[],!1,null,null,null);t.default=i.exports}}]);
+>>>>>>> master
