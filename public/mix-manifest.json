@@ -1,17 +1,6 @@
 {
-<<<<<<< HEAD
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/example-component.js": "/js/example-component.js",
     "/views/view0.js": "/views/view0.js"
-=======
-    "/js/app.js": "/js/app.js?id=6f5dc68128069010afb8",
-    "/css/app.css": "/css/app.css?id=d41d8cd98f00b204e980",
-    "/js/manifest.js": "/js/manifest.js?id=efb49a7e8baefc636268",
-    "/js/vendor.js": "/js/vendor.js?id=50fd485a7558343895f0",
-    "/views/view0.js": "/views/view0.js?id=8e66e633b48d96bcd6c3",
-    "/views/view1.js": "/views/view1.js?id=849a30ea8023de12fadd",
-    "/views/view2.js": "/views/view2.js?id=cac4b641b8f7e156e07f",
-    "/views/view3.js": "/views/view3.js?id=3de66cb61af2187ae7a6"
->>>>>>> master
 }

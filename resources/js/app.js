@@ -8,7 +8,6 @@ import './bootstrap';
 
 import Vue from'vue';
 import router from './router/router'
-<<<<<<< HEAD
 import App from './App.vue';
 
 
@@ -32,16 +31,6 @@ Vue.component('example-component',  () => import(/* webpackChunkName: "js/exampl
  */
 
 
-=======
-import Vue from "vue";
-import vuetify from './vuetify/vuetify'
-import App from './App.vue';
-import store from './vuex/store'
-import "@babel/polyfill";
-import VeeValidate from 'vee-validate';
-
-Vue.use(VeeValidate);
->>>>>>> master
 
 /**
  * Register any components that are not part of the views
@@ -50,6 +39,5 @@ Vue.use(VeeValidate);
  */
 new Vue({
     router,
-    vuetify,
     render: h => h(App)
 }).$mount("#app");

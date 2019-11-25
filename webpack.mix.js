@@ -12,18 +12,4 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-<<<<<<< HEAD
    .sass('resources/sass/app.scss', 'public/css');
-=======
-    .sass('resources/sass/app.scss', 'public/css')
-    .extract(['vue', 'vue-router', 'vue-meta', 'axios'])
-
-
-if (mix.inProduction()) {
-    mix.version();
-}
-
-mix.options({
-    extractVueStyles: true,
-});
->>>>>>> master
