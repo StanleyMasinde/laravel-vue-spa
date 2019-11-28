@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/example-component.js": "/js/example-component.js",
-    "/views/view0.js": "/views/view0.js"
+    "/views/view0.js": "/views/view0.js",
+    "/views/view1.js": "/views/view1.js"
 }
