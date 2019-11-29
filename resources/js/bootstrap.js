@@ -11,7 +11,18 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) { }
+
+/**
+ * Register the service worker
+ */
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js').then(registered => {
+        console.log(registered)
+    }).catch(err => {
+        console.log(err)
+    })
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

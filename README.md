@@ -9,5 +9,3 @@ It makes it easy to to build single page applications using [Vuejs](https://vuej
 2. Progrsssive Web app ready
 3. Uses Bootsrap CSS framework
 4. *more like authentication coming soon*
-
-## [Docs here]('https://github.com/stannlee.github.io/vue-laravel-spa')
