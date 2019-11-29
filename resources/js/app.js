@@ -6,10 +6,23 @@
 
 import './bootstrap';
 
-window.Vue = require('vue')
+import Vue from 'vue';
 import router from './router/router'
 import App from './App.vue';
+import auth from './auth';
 
+/**
+ * Configuration for authentication
+ * @param {Object}
+ */
+var authConfig = {
+    bearer: 'token',
+    cookie: true,
+    session_lifetime: 120,
+    register: true,
+}
+
+Vue.use(auth, authConfig)
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,8 +35,7 @@ import App from './App.vue';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component',  () => import(/* webpackChunkName: "js/example-component" */'./components/ExampleComponent.vue'));
-
+Vue.component('example-component', () => import(/* webpackChunkName: "js/example-component" */'./components/ExampleComponent.vue'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
