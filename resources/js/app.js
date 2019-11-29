@@ -6,7 +6,7 @@
 
 import './bootstrap';
 
-import Vue from 'vue';
+window.Vue = require('vue');
 import router from './router/router'
 import App from './App.vue';
 import auth from './auth';
