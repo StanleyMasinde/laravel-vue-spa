@@ -3,6 +3,5 @@
     "/css/app.css": "/css/app.css",
     "/js/example-component.js": "/js/example-component.js",
     "/views/view0.js": "/views/view0.js",
-    "/views/view1.js": "/views/view1.js",
-    "/vendors~views/view0~views/view1.js": "/vendors~views/view0~views/view1.js"
+    "/views/view1.js": "/views/view1.js"
 }
