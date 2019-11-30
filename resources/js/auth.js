@@ -12,15 +12,12 @@ export default {
         //Logout a user
         Vue.prototype.logout = () => 'Logged out'
 
-        // Add Vue instance methods by attaching them to Vue.prototype.
-        Vue.prototype.$auth = false
-
         // Add `Vue.mixin()` to inject options to all components.
         Vue.mixin({
             // Add component lifecycle hooks or properties.
             created() {
                 //
-                console.log(options)
+                 //console.log(this.$store.state.auth)
             },
             mounted() {
                 //

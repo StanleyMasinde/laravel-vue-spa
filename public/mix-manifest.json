@@ -2,6 +2,10 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/example-component.js": "/js/example-component.js",
+    "/js/navigation-bar.js": "/js/navigation-bar.js",
     "/views/view0.js": "/views/view0.js",
-    "/views/view1.js": "/views/view1.js"
+    "/views/view2.js": "/views/view2.js",
+    "/views/view3.js": "/views/view3.js",
+    "/views/view4.js": "/views/view4.js",
+    "/views/view5.js": "/views/view5.js"
 }
