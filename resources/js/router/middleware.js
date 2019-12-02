@@ -1,19 +1,14 @@
-/**
- * Common middlewae that can be applied to routes
- */
+import store from "../vuex/store"
 
-let middlewares = {
+const token = store.state.token
+export default {
     auth: (to, from, next) => {
-        // Show login page if the user is not logged in
-        if (window.auth == 'false') next('/login')
-        else next()
+        if (token == '') next('/login')
+        next()
     },
     guest: (to, from, next) => {
-        if (window.auth == 'true') next('/')
-        else next()
+        next()
     }
 }
 
 
-
-export default middlewares

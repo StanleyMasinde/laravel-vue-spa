@@ -16,25 +16,34 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $v = $request->validate([
+            'name' => 'required',
             'email' => 'required|email|unique:users',
             'password'  => 'required|min:3|confirmed',
         ]);
         $user = new User;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
-        return response()->json(['status' => 'success'], 200);
+        return Auth::login($user);
     }
     /**
      * Login A user
      */
     public function login(Request $request)
     {
+        return Auth::login(User::first());
+
         $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return Auth::attempt($credentials);
+        } else {
+            return response()->json(['message' => 'These credentials do not match our records.']);
+        }
         if ($token = $this->guard()->attempt($credentials)) {
             return response()->json(['status' => 'success'], 200)->header('Authorization', $token);
         }
-        return response()->json(['error' => 'login_error'], 401);
+        return response()->json(['message' => 'These credentials do not match our records.'], 401);
     }
     /**
      * Logout User

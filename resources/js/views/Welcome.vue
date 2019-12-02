@@ -4,10 +4,10 @@
       <!-- if the user is logged in -->
       <router-link v-if="isLoggedIn" to="/home">Home</router-link>
       <!-- if the user is not logged in -->
-      <router-link to="/login">Login</router-link>
+      <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
 
       <!-- @if (Route::has('register')) -->
-      <router-link to="/register">Register</router-link>
+      <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
       <!-- @endif -->
       <!-- @endauth -->
     </div>

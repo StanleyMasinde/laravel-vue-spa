@@ -22,10 +22,10 @@
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/login">Login</router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/register">Register</router-link>
             </li>
             <li v-if="isLoggedIn" class="nav-item dropdown">
@@ -37,19 +37,13 @@
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                v-pre
               >
-                John Doe
+                {{ user.name }}
                 <span class="caret"></span>
               </router-link>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <router-link
-                  class="dropdown-item"
-                  to="/logout"
-                  onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                >Logout</router-link>
+                <a class="dropdown-item" to="#" @click.prevent="logout">Logout</a>
 
                 <form id="logout-form" action="/logout" method="POST" style="display: none;"></form>
               </div>
@@ -70,6 +64,14 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.getters.auth;
+    },
+    user() {
+      return this.$store.state.user;
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.commit("logout");
     }
   },
   mounted() {}

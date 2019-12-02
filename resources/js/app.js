@@ -9,21 +9,13 @@ import './bootstrap';
 window.Vue = require('vue');
 import router from './router/router'
 import App from './App.vue';
-import auth from './auth';
 import store from './vuex/store'
+import Axios from 'axios';
 
-/**
- * Configuration for authentication
- * @param {Object}
- */
-var authConfig = {
-    bearer: 'token',
-    cookie: true,
-    session_lifetime: 120,
-    register: true,
-}
+Vue.prototype.$http = Axios
+Vue.prototype.$http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${store.state.token}`
 
-Vue.use(auth, authConfig)
 
 /**
  * The following block of code may be used to automatically register your
