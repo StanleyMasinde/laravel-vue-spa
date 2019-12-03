@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -36,11 +37,11 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-       if (Auth::attempt($credentials)) {
-           return Auth::attempt($credentials);
-       }  else {
-           return response()->json(['message' => Lang::get('auth.failed')], 401);
-       }
+        if (Auth::attempt($credentials)) {
+            return Auth::attempt($credentials);
+        } else {
+            return response()->json(['message' => Lang::get('auth.failed')], 401);
+        }
     }
     /**
      * Logout User
@@ -82,5 +83,20 @@ class AuthController extends Controller
     private function guard()
     {
         return Auth::guard();
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $email = $request->email;
+        $user = User::where(['email' => $email])->first();
+        $token = Str::random(60);
+
+        if ($user) {
+            $user->sendPasswordResetNotification($token);
+
+            return 'The email was sent';
+        } else {
+            return response('User not found', 422);
+        }
     }
 }

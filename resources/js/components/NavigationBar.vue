@@ -44,8 +44,6 @@
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" to="#" @click.prevent="logout">Logout</a>
-
-                <form id="logout-form" action="/logout" method="POST" style="display: none;"></form>
               </div>
             </li>
           </ul>
@@ -54,6 +52,38 @@
     </nav>
 
     <main class="py-4">
+      <div v-if="error" class="alert alert-info" role="alert">
+        <strong>Oops 😢 something went wrong please try refreshing the page</strong>
+      </div>
+      <!-- Loader  -->
+      <div class="text-center" v-if="loading">
+        <div class="spinner-grow text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+
+      <!-- Application components will be injected here -->
       <slot></slot>
     </main>
   </div>
@@ -67,6 +97,12 @@ export default {
     },
     user() {
       return this.$store.state.user;
+    },
+    error() {
+     return this.$store.state.error;
+    },
+    loading() {
+     return this.$store.state.loading;
     }
   },
   methods: {

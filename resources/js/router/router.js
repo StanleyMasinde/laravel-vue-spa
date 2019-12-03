@@ -5,6 +5,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
+import store from '../vuex/store';
 
 Vue.use(VueRouter)
 
@@ -18,19 +19,19 @@ const router = new VueRouter({
  * This would be a good place to set the application 
  * to a loading state
  */
-// router.beforeEach((to, from, next) => {
-//     // store.state.loading = true
-//     return next(true)
-// })
+router.beforeEach((to, from, next) => {
+    store.state.loading = true
+    return next(true)
+})
 
-// /**
-//  * Do something after every root.
-//  * This might be a good place to 
-//  * stop the loader
-//  */
-// router.afterEach((to, from) => {
-//     // store.state.loading = false
-//     return true
-// })
+/**
+ * Do something after every root.
+ * This might be a good place to 
+ * stop the loader
+ */
+router.afterEach((to, from) => {
+    store.state.loading = false
+    return true
+})
 
 export default router

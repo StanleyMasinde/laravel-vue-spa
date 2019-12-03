@@ -113,6 +113,7 @@ export default {
   },
   methods: {
     register() {
+      this.$store.state.loading = true;
       const form = document.querySelector("#registerForm");
       const formData = new FormData(form);
 
@@ -125,6 +126,9 @@ export default {
         .catch(err => {
           this.errors = err.response.data.errors;
         })
+        .finally(() => {
+          this.$store.state.loading = false;
+        });
     }
   },
   mounted() {}

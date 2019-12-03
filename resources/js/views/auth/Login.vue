@@ -88,6 +88,7 @@ export default {
   },
   methods: {
     login() {
+      this.$store.state.loading = true;
       const form = document.querySelector("#loginForm");
       const formData = new FormData(form);
 
@@ -102,6 +103,7 @@ export default {
           this.error = true;
         })
         .finally(() => {
+          this.$store.state.loading = false;
           setTimeout(() => {
             this.error = false;
           }, 3000);

@@ -26,3 +26,7 @@ Route::prefix('auth')->group(function () {
         Route::post('logout', 'AuthController@logout');
     });
 });
+
+Route::prefix('password')->group(function() {
+    Route::post('reset', 'AuthController@resetPassword');
+});

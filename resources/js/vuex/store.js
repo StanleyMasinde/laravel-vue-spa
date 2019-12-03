@@ -7,7 +7,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         token: localStorage.token,
-        user: {}
+        user: {},
+        error: false,
+        loading: false
     },
     mutations: {
         login(state, token) {
