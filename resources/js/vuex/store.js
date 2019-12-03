@@ -13,7 +13,7 @@ const store = new Vuex.Store({
         login(state, token) {
             Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${token}`
             state.token = localStorage.token = token
-            router.push({ path: '/home' })
+            router.push({ path: '/home' }).then((done) => console.log(done)).catch(err => { console.log(err) })
         },
         logout(state) {
             state.token = localStorage.token = ''

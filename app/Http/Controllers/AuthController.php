@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Lang;
 
 class AuthController extends Controller
 {
@@ -32,18 +33,14 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        return Auth::login(User::first());
 
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return Auth::attempt($credentials);
-        } else {
-            return response()->json(['message' => 'These credentials do not match our records.']);
-        }
-        if ($token = $this->guard()->attempt($credentials)) {
-            return response()->json(['status' => 'success'], 200)->header('Authorization', $token);
-        }
-        return response()->json(['message' => 'These credentials do not match our records.'], 401);
+
+       if (Auth::attempt($credentials)) {
+           return Auth::attempt($credentials);
+       }  else {
+           return response()->json(['message' => Lang::get('auth.failed')], 401);
+       }
     }
     /**
      * Logout User

@@ -7,6 +7,9 @@
             <div class="card-header">Login</div>
 
             <div class="card-body">
+              <div v-if="error" class="alert alert-danger" role="alert">
+                <strong>{{ message }}</strong>
+              </div>
               <form @submit.prevent="login" id="loginForm" method="POST" action="/login">
                 <div class="form-group row">
                   <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
@@ -76,6 +79,13 @@
 
 <script>
 export default {
+  data() {
+    return {
+      error: false,
+      message: null,
+      attempts: 0
+    };
+  },
   methods: {
     login() {
       const form = document.querySelector("#loginForm");
@@ -88,10 +98,13 @@ export default {
           this.$store.commit("login", res.data);
         })
         .catch(err => {
-          console.log(err);
+          this.message = err.response.data.message;
+          this.error = true;
         })
         .finally(() => {
-          //
+          setTimeout(() => {
+            this.error = false;
+          }, 3000);
         });
     }
   }

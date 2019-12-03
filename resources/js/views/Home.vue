@@ -23,7 +23,9 @@ export default {
         .then(user => {
           this.$store.state.user = user.data;
         })
-        .catch();
+        .catch(err => {
+          this.$store.commit("logout");
+        });
     }
   },
   created() {
