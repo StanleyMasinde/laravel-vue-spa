@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Single Page Applications in laravel",
     "keywords": [
         "framework",
         "laravel"
