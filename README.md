@@ -1,4 +1,5 @@
 ![CI](https://github.com/stannlee/vue-laravel-spa/workflows/CI/badge.svg?branch=3.x)
+![Node.js CI](https://github.com/stannlee/vue-laravel-spa/workflows/Node.js%20CI/badge.svg)
 # Laravel SPA Scaffolding
 
 ## What is this?
