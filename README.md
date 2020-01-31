@@ -1,3 +1,4 @@
+![CI](https://github.com/stannlee/vue-laravel-spa/workflows/CI/badge.svg?branch=3.x)
 # Laravel SPA Scaffolding
 
 ## What is this?
