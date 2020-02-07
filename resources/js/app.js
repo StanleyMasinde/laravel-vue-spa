@@ -6,15 +6,10 @@
 
 import './bootstrap';
 
-window.Vue = require('vue');
+import Vue from 'vue'
 import router from './router/router'
 import App from './App.vue';
 import store from './vuex/store'
-import Axios from 'axios';
-
-Vue.prototype.$http = Axios
-Vue.prototype.$http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${store.state.token}`
 
 
 /**
@@ -28,8 +23,6 @@ Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${store.stat
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', () => import(/* webpackChunkName: "js/example-component" */'./components/ExampleComponent.vue'));
-Vue.component('navigation-bar', () => import(/* webpackChunkName: "js/navigation-bar" */'./components/NavigationBar.vue'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -15,24 +15,7 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    getUser() {
-      this.$http
-        .get("/api/user")
-        .then(user => {
-          this.$store.state.user = user.data;
-        })
-        .catch(err => {
-          this.$store.commit("logout");
-        });
-    }
-  },
-  created() {
-    this.getUser();
-  },
-  mounted() {}
-};
+export default {};
 </script>
 
 <style>

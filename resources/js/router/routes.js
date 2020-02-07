@@ -1,5 +1,4 @@
 import middleware from './middleware'
-import auth from '../auth'
 /**
  * Responsible for mapping the views in the views folder
  * @param {*} view 
