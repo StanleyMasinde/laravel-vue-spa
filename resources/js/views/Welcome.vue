@@ -1,17 +1,10 @@
 <template>
   <div class="flex-center position-ref full-height">
     <div class="top-right links">
-      <!-- if the user is logged in -->
-      <router-link v-if="isLoggedIn" to="/home">Home</router-link>
-      <!-- if the user is not logged in -->
+      <!-- <router-link v-if="isLoggedIn" to="/home">Home</router-link>
       <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-
-      <!-- @if (Route::has('register')) -->
-      <router-link v-if="!isLoggedIn" to="/register">Register</router-link>
-      <!-- @endif -->
-      <!-- @endauth -->
+      <router-link v-if="!isLoggedIn" to="/register">Register</router-link>-->
     </div>
-    <!-- @endif -->
     <div class="content">
       <div class="title m-b-md">Laravel</div>
 
@@ -30,14 +23,7 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    isLoggedIn() {
-      return this.$store.getters.auth;
-    }
-  },
-  mounted() {}
-};
+export default {};
 </script>
 
 <!-- Styles -->
