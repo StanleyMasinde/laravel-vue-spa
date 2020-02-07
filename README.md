@@ -1,5 +1,8 @@
 ![CI](https://github.com/stannlee/vue-laravel-spa/workflows/CI/badge.svg?branch=3.x)
 ![Node.js CI](https://github.com/stannlee/vue-laravel-spa/workflows/Node.js%20CI/badge.svg)
+## packagist
+[![Latest Stable Version](https://poser.pugx.org/stannlee/vue-laravel-spa/v/stable)](https://packagist.org/packages/stannlee/vue-laravel-spa)
+[![Total Downloads](https://poser.pugx.org/stannlee/vue-laravel-spa/downloads)](https://packagist.org/packages/stannlee/vue-laravel-spa)
 # Laravel SPA Scaffolding
 
 ## What is this?
@@ -10,4 +13,5 @@ It makes it easy to to build single page applications using [Vuejs](https://vuej
 1. Single Page application
 2. Progrsssive Web app ready
 3. Uses Bootsrap CSS framework
-4. *more like authentication coming soon*
+
+_docs coming soon_
