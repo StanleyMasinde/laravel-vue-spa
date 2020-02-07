@@ -1,9 +1,9 @@
-import store from "../vuex/store"
-
-const token = store.state.token
+/**
+ * Register all your SPA middleware here
+ * 
+ */
 export default {
     auth: (to, from, next) => {
-        if (token == '') next('/login')
         next()
     },
     guest: (to, from, next) => {
