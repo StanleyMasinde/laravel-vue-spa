@@ -14,5 +14,5 @@ It makes it easy to to build single page applications using [Vuejs](https://vuej
 2. Progrsssive Web app ready
 3. Uses Bootsrap CSS framework
 
-[Documentation](https://stannlee.github.io/vue-lavel-spa)
+[Documentation](https://stannlee.github.io/vue-laravel-spa)
 _more docs coming soon_
