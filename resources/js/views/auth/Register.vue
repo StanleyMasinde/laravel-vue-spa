@@ -6,15 +6,13 @@
           <div class="card-header">Register</div>
 
           <div class="card-body">
-            <div
-              v-for="(error, index) in errors"
-              :key="index"
-              class="alert alert-danger"
-              role="alert"
+            <form
+              @submit.prevent="register"
+              id="registerForm"
+              method="POST"
+              action="register"
+              novalidate
             >
-              <strong>{{ error[0] }}</strong>
-            </div>
-            <form @submit.prevent="register" id="registerForm" method="POST" action="register">
               <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
@@ -23,14 +21,15 @@
                     id="name"
                     type="text"
                     class="form-control"
+                    :class="errors.name ? 'is-invalid' : ''"
                     name="name"
                     autofocus
                     autocomplete="family-name"
                   />
 
-                  <span class="invalid-feedback" role="alert">
-                    <strong></strong>
-                  </span>
+                  <div class="invalid-feedback">
+                    {{ errors.name ? errors.name[0] : ''}}
+                  </div>
                 </div>
               </div>
 
@@ -42,15 +41,16 @@
                     id="email"
                     type="email"
                     class="form-control"
+                    :class="errors.email ? 'is-invalid' : ''"
                     name="email"
                     value
                     required
                     autocomplete="email"
                   />
 
-                  <span class="invalid-feedback" role="alert">
-                    <strong></strong>
-                  </span>
+                  <div class="invalid-feedback">
+                    {{ errors.email ? errors.email[0] : ''}}
+                  </div>
                 </div>
               </div>
 
@@ -61,15 +61,16 @@
                   <input
                     id="password"
                     type="password"
+                    :class="errors.password ? 'is-invalid' : ''"
                     class="form-control"
                     name="password"
                     required
                     autocomplete="new-password"
                   />
 
-                  <span class="invalid-feedback" role="alert">
-                    <strong></strong>
-                  </span>
+                  <div class="invalid-feedback">
+                    {{ errors.password ? errors.password[0] : ''}}
+                  </div>
                 </div>
               </div>
 
@@ -84,11 +85,16 @@
                     id="password-confirm"
                     type="password"
                     class="form-control"
+                    :class="errors.password_confirmation ? 'is-invalid' : ''"
                     name="password_confirmation"
                     required
                     autocomplete="new-password"
                   />
                 </div>
+
+                <div class="invalid-feedback">
+                    {{ errors.password_confirmation ? errors.password_confirmation[0] : ''}}
+                  </div>
               </div>
 
               <div class="form-group row mb-0">
@@ -120,18 +126,12 @@ export default {
       const form = document.querySelector("#registerForm");
       const formData = new FormData(form);
 
-      this.$http
-        .post("/api/auth/register", formData)
+      axios
+        .post("/register", formData)
         .then(res => {
-          this.$store.state.token = localStorage.token = res.data;
-          this.$store.commit("login", res.data);
+          this.$store.commit("login", res.headers.token);
         })
-        .catch(err => {
-          this.errors = err.response.data.errors;
-        })
-        .finally(() => {
-          this.$store.state.loading = false;
-        });
+        .catch(err => (this.errors = err.response.data.errors));
     }
   },
   mounted() {}

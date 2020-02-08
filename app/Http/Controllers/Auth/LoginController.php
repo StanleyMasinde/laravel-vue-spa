@@ -47,7 +47,12 @@ class LoginController extends Controller
     protected function sendLoginResponse(Request $request)
     {
         $request->session()->regenerate();
+        $user = $request->user();
 
-        return response('Logged in');
+        $token = $user->createToken('token-name');
+        $token->plainTextToken;
+        return response('Logged in', 204, [
+            'token' => $token->plainTextToken
+        ]);
     }
 }

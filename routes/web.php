@@ -14,3 +14,5 @@
 Route::fallback(function () {
     return view('welcome');
 });
+
+Auth::routes();

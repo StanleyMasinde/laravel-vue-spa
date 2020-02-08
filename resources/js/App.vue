@@ -1,13 +1,28 @@
 <template>
   <main>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
       <router-link class="navbar-brand text-muted" to="/">My spa</router-link>
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
+      <ul class="navbar-nav ml-auto mt-2 pr-5 mt-lg-0">
+        <li class="nav-item active" v-if="!auth">
           <router-link class="nav-link text-muted link" to="/login">Login</router-link>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" v-if="!auth">
           <router-link class="nav-link text-muted link" to="/register">Register</router-link>
+        </li>
+        <li class="nav-item dropdown active" v-if="auth">
+          <a
+            class="nav-link link dropdown-toggle text-muted"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >{{ user.name }}</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <router-link class="dropdown-item" to="/home">Home</router-link>
+            <a @click.prevent="logout" class="dropdown-item" href="#">Logout</a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -26,6 +41,19 @@ export default {
       lang: "en",
       amp: true
     }
+  },
+  methods: {
+    logout() {
+      this.$store.commit("logout");
+    }
+  },
+  computed: {
+    auth() {
+      return this.$store.getters.auth;
+    },
+    user() {
+      return this.$store.state.user;
+    }
   }
 };
 </script>
@@ -34,10 +62,10 @@ export default {
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {

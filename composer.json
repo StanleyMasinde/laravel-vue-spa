@@ -12,6 +12,7 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.2",
+        "laravel/airlock": "^0.2.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.1"
     },
