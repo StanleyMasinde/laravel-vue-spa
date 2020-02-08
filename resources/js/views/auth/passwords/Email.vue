@@ -1,7 +1,6 @@
 <template>
-  <navigation-bar>
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center align-content-center almost-full-height">
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">Reset Password</div>
@@ -45,11 +44,13 @@
         </div>
       </div>
     </div>
-  </navigation-bar>
 </template>
 
 <script>
 export default {
+  metaInfo: {
+    title: "Reset Password",
+  },
   data() {
     return {
       emailSent: false

@@ -10,6 +10,11 @@ import Vue from 'vue'
 import router from './router/router'
 import App from './App.vue';
 import store from './vuex/store'
+import VueMeta from 'vue-meta'
+
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true
+})
 
 
 /**

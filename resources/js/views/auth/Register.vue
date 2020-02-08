@@ -1,6 +1,6 @@
 <template>
-  <navigation-bar>
-    <div class="row justify-content-center">
+  <div class="container">
+    <div class="row justify-content-center align-content-center almost-full-height">
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">Register</div>
@@ -101,11 +101,14 @@
         </div>
       </div>
     </div>
-  </navigation-bar>
+  </div>
 </template>
 
 <script>
 export default {
+  metaInfo: {
+    title: "Register"
+  },
   data() {
     return {
       errors: {}
