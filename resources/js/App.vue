@@ -59,12 +59,10 @@ export default {
     if (localStorage.token !== "") {
       axios
         .get("/api/user")
-        .then(res => {
-          this.$store.commit("login", localStorage.token);
+        .then((res) => {
+          this.$store.commit("sessionAvailable", res.data);
         })
-        .catch((err) => {
-          console.error(err);
-          
+        .catch(() => {
           this.$store.commit("noSession");
         });
     } else {

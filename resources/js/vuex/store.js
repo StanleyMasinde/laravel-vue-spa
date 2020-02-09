@@ -23,10 +23,13 @@ const store = new Vuex.Store({
             state.user = {}
             window.axios.defaults.headers.common.Authorization = `Bearer ''`
             window.axios.post('/logout')
-            router.push({ path: '/login' })
+            router.push({ path: '/login' }).then(done => done).catch(err => console.error(err))
+        },
+        sessionAvailable(state, user) {
+            state.user = user
         },
         noSession(state) {
-            state.token = localStorage.token = ''
+            state.token = localStorage.token = ""
             state.user = {}
             window.axios.defaults.headers.common.Authorization = `Bearer ''`
         }
