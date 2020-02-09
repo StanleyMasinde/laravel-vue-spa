@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', 'Application\ApiController@user');
-Route::post('login', 'Application\ApiController@login');
-Route::post('register', 'Application\ApiController@register');
+Route::middleware('auth:airlock')->get('/user', function (Request $request) {
+    return $request->user();
+});

@@ -8,3 +8,5 @@ _config.yml export-ignore
 README.md export-ignore
 composer.lock export-ignore
 yarn.lock export-ignore
+docs export-ignore
+documentation export-ignore

@@ -1,7 +1,7 @@
 {
   "name": "Laravel vue Spa",
   "short_name": "Laravel vue",
-  "theme_color": "#41b883",
+  "theme_color": "#424242",
   "background_color": "#f2fbf7",
   "display": "standalone",
   "orientation": "portrait",

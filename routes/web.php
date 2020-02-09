@@ -11,4 +11,8 @@
 |
 */
 
-Route::get('{path}', 'Application\MainController@index')->where('path', '(.*)');
+Route::fallback(function () {
+    return view('welcome');
+});
+
+Auth::routes();

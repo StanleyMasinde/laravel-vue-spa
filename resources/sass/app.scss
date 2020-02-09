@@ -1,1 +1,24 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.full-height {
+    height: 100vh;
+}
+.almost-full-height{
+    height: 85vh;
+}
+.links > a,
+.link {
+  color: #636b6f;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}

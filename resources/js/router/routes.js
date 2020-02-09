@@ -1,28 +1,50 @@
-/** 
- *This function is used to resolve your views in the views directory
- Only include the name of the view without the file extenstion
+import middleware from './middleware'
+/**
+ * Responsible for mapping the views in the views folder
+ * @param {*} view 
  */
-const path = (_view) => {
-        return require( /* webpackChunkName: 'view on' */ `../views/${_view}.vue`).default
-    }
+const path = view => () => import(/* webpackChunkName: 'views/view' */ `../views/${view}.vue`)
+
+const routes = [
     /**
-     * Register your routes here
-     * Only use the component name without .vue
+     * For some reason, this only works when not async
      */
-let routes = [{
-        path: "/",
-        name: "home",
-        component: path('Home')
+    {
+        path: '/',
+        name: 'Welcome',
+        component: require('../views/Welcome.vue').default,
     },
     {
-        path: "/login",
-        name: "Login",
-        component: path('Login')
+        path: '/login',
+        name: 'Login',
+        component: path('auth/Login'),
+        beforeEnter: middleware.guest
     },
     {
-        path: "/register",
-        name: "register",
-        component: path('Register')
+        path: '/register/',
+        name: 'Register',
+        component: path('auth/Register'),
+        beforeEnter: middleware.guest
+    },
+    {
+        path: '/password/reset',
+        name: 'Reset Password',
+        component: path('auth/passwords/Email'),
+        beforeEnter: middleware.guest
+    },
+    {
+        path: '/home',
+        name: 'Home',
+        component: path('Home'),
+        beforeEnter: middleware.auth
+    },
+    /**
+    * Has to be the last path
+    */
+    {
+        path: "*",
+        name: 'Not Found',
+        component: path('404')
     }
 ]
 

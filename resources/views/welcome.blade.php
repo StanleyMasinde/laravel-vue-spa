@@ -4,24 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="Single page applications in laravel using vuejs">
 
     <title>Laravel</title>
+    <!-- App Manifest -->
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
 
-    <!--Manifest-->
-    <link rel="manifest" href="manifest.json">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <!--styles-->
-    <link rel="stylesheet" href="{{ mix( 'css/app.css') }}">
-    <!--scripts-->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="{{ mix('js/vendor.js') }}" defer></script>
-    <script src="{{ mix('js/manifest.js') }}" defer></script>
+    <!-- Javascript -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
+    <!-- App Content will be auto injected -->
     <div id="app"></div>
+    <noscript>JavaScript is required to run {{ config('app.name') }} Please enable JavaScript To continue</noscript>
 </body>
 
 </html>
