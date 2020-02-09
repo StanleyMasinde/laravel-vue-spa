@@ -54,6 +54,22 @@ export default {
     user() {
       return this.$store.state.user;
     }
+  },
+  beforeCreate() {
+    if (localStorage.token !== "") {
+      axios
+        .get("/api/user")
+        .then(res => {
+          this.$store.commit("login", localStorage.token);
+        })
+        .catch((err) => {
+          console.error(err);
+          
+          this.$store.commit("noSession");
+        });
+    } else {
+      this.$store.commit("noSession");
+    }
   }
 };
 </script>

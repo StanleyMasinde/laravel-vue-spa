@@ -14,9 +14,9 @@ const store = new Vuex.Store({
     mutations: {
         login(state, token) {
             window.axios.defaults.headers.common.Authorization = `Bearer ${token}`
-            window.axios.get('/api/user').then(res => state.user = res.data)
+            window.axios.get('/api/user').then(res => state.user = res.data).catch((er) => console.error(er))
             state.token = localStorage.token = token
-            router.push({ path: '/home' }).then((done) => console.log(done)).catch(err => { console.log(err) })
+            router.push({ path: '/home' }).then((done) => done).catch(err => console.error(err))
         },
         logout(state) {
             state.token = localStorage.token = ''
@@ -24,6 +24,11 @@ const store = new Vuex.Store({
             window.axios.defaults.headers.common.Authorization = `Bearer ''`
             window.axios.post('/logout')
             router.push({ path: '/login' })
+        },
+        noSession(state) {
+            state.token = localStorage.token = ''
+            state.user = {}
+            window.axios.defaults.headers.common.Authorization = `Bearer ''`
         }
     },
     actions: {},
