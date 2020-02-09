@@ -1,5 +1,6 @@
 <template>
   <main>
+    <LoaderComponent v-if="loading"></LoaderComponent>
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
       <router-link class="navbar-brand text-muted" to="/">My spa</router-link>
       <ul class="navbar-nav ml-auto mt-2 pr-5 mt-lg-0">
@@ -53,13 +54,16 @@ export default {
     },
     user() {
       return this.$store.state.user;
+    },
+    loading() {
+      return this.$store.state.loading;
     }
   },
   beforeCreate() {
     if (localStorage.token !== "") {
       axios
         .get("/api/user")
-        .then((res) => {
+        .then(res => {
           this.$store.commit("sessionAvailable", res.data);
         })
         .catch(() => {
