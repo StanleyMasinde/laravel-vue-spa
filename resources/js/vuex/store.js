@@ -12,10 +12,10 @@ const store = new Vuex.Store({
         loading: false
     },
     mutations: {
-        login(state, token) {
-            window.axios.defaults.headers.common.Authorization = `Bearer ${token}`
-            window.axios.get('/api/user').then(res => state.user = res.data).catch((er) => console.error(er))
-            state.token = localStorage.token = token
+        login(state, res) {
+            window.axios.defaults.headers.common.Authorization = `Bearer ${res.headers.token}`
+            state.user = res.data
+            state.token = localStorage.token = res.headers.token
             router.push({ path: '/home' }).then((done) => done).catch(err => console.error(err))
         },
         logout(state) {

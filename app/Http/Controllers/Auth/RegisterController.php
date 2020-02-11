@@ -88,7 +88,7 @@ class RegisterController extends Controller
 
         $token = $user->createToken('token-name');
         $token->plainTextToken;
-        return response('Registered', 204, [
+        return response($user, 200, [
             'token' => $token->plainTextToken
         ]);
     }

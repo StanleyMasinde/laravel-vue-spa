@@ -27,9 +27,7 @@
                     autocomplete="family-name"
                   />
 
-                  <div class="invalid-feedback">
-                    {{ errors.name ? errors.name[0] : ''}}
-                  </div>
+                  <div class="invalid-feedback">{{ errors.name ? errors.name[0] : ''}}</div>
                 </div>
               </div>
 
@@ -48,9 +46,7 @@
                     autocomplete="email"
                   />
 
-                  <div class="invalid-feedback">
-                    {{ errors.email ? errors.email[0] : ''}}
-                  </div>
+                  <div class="invalid-feedback">{{ errors.email ? errors.email[0] : ''}}</div>
                 </div>
               </div>
 
@@ -68,9 +64,7 @@
                     autocomplete="new-password"
                   />
 
-                  <div class="invalid-feedback">
-                    {{ errors.password ? errors.password[0] : ''}}
-                  </div>
+                  <div class="invalid-feedback">{{ errors.password ? errors.password[0] : ''}}</div>
                 </div>
               </div>
 
@@ -92,9 +86,9 @@
                   />
                 </div>
 
-                <div class="invalid-feedback">
-                    {{ errors.password_confirmation ? errors.password_confirmation[0] : ''}}
-                  </div>
+                <div
+                  class="invalid-feedback"
+                >{{ errors.password_confirmation ? errors.password_confirmation[0] : ''}}</div>
               </div>
 
               <div class="form-group row mb-0">
@@ -129,7 +123,7 @@ export default {
       axios
         .post("/register", formData)
         .then(res => {
-          this.$store.commit("login", res.headers.token);
+          this.$store.commit("login", res);
         })
         .catch(err => (this.errors = err.response.data.errors));
     }

@@ -91,9 +91,10 @@ export default {
       axios
         .post("/login", formData)
         .then(res => {
-          this.$store.commit('login', res.headers.token)
-          })
-        .catch(err => (this.errors = err.response.data.errors));
+          this.$store.commit("login", res);
+        })
+        .catch(err => (this.errors = err.response.data.errors))
+        .finally(() => (this.$store.state.loading = false));
     }
   },
   created() {

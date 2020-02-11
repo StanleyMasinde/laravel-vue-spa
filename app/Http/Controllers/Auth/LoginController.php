@@ -51,7 +51,7 @@ class LoginController extends Controller
 
         $token = $user->createToken('token-name');
         $token->plainTextToken;
-        return response('Logged in', 204, [
+        return response($user, 200, [
             'token' => $token->plainTextToken
         ]);
     }
