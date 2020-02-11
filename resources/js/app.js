@@ -10,6 +10,11 @@ import Vue from 'vue'
 import router from './router/router'
 import App from './App.vue';
 import store from './vuex/store'
+import VueMeta from 'vue-meta'
+
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true
+})
 
 
 /**
@@ -22,7 +27,7 @@ import store from './vuex/store'
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+Vue.component('LoaderComponent', require('./components/LoaderComponent.vue').default)
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

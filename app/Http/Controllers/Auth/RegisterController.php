@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -82,6 +86,10 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        return response('Registered');
+        $token = $user->createToken('token-name');
+        $token->plainTextToken;
+        return response($user, 200, [
+            'token' => $token->plainTextToken
+        ]);
     }
 }

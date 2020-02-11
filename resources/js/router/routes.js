@@ -21,7 +21,7 @@ const routes = [
         beforeEnter: middleware.guest
     },
     {
-        path: '/register/',
+        path: '/register',
         name: 'Register',
         component: path('auth/Register'),
         beforeEnter: middleware.guest

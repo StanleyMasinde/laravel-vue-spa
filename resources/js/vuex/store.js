@@ -12,27 +12,36 @@ const store = new Vuex.Store({
         loading: false
     },
     mutations: {
-        login(state, token) {
-            Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ${token}`
-            state.token = localStorage.token = token
-            router.push({ path: '/home' }).then((done) => console.log(done)).catch(err => { console.log(err) })
+        login(state, res) {
+            window.axios.defaults.headers.common.Authorization = `Bearer ${res.headers.token}`
+            state.user = res.data
+            state.token = localStorage.token = res.headers.token
+            router.push({ path: '/home' }).then((done) => done).catch(err => console.error(err))
         },
         logout(state) {
             state.token = localStorage.token = ''
             state.user = {}
-            Vue.prototype.$http.defaults.headers.common.Authorization = `Bearer ''`
-            router.push({ path: '/login' })
+            window.axios.defaults.headers.common.Authorization = `Bearer ''`
+            window.axios.post('/logout')
+            router.push({ path: '/login' }).then(done => done).catch(err => console.error(err))
+        },
+        sessionAvailable(state, user) {
+            state.user = user
+        },
+        noSession(state) {
+            state.token = localStorage.token = ""
+            state.user = {}
+            window.axios.defaults.headers.common.Authorization = `Bearer ''`
         }
     },
     actions: {},
     getters: {
         auth(state, getters) {
-            if (state.token == '') {
-                return false
-            } else {
-                return true
-            }
+            return state.token == '' ? false : true
         },
+        user(state, getters) {
+            return state.user
+        }
     }
 })
 

@@ -34,6 +34,10 @@ if (navigator.serviceWorker) {
  window.axios = require('axios');
 
  window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+ window.axios.defaults.withCredentials = true;
+
+ // set the token to ''
+ localStorage.token ? window.axios.defaults.headers.common.Authorization = `Bearer ${localStorage.token}` : localStorage.token = ''
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
