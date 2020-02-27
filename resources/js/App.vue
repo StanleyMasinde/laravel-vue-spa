@@ -1,106 +1,93 @@
 <template>
-  <main>
-    <LoaderComponent v-if="loading"></LoaderComponent>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-lg-5">
-      <router-link class="navbar-brand text-muted" to="/">My spa</router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mt-2 pr-5 mt-lg-0">
-          <li class="nav-item active" v-if="!auth">
-            <router-link class="nav-link text-muted link" to="/login">Login</router-link>
-          </li>
-          <li class="nav-item active" v-if="!auth">
-            <router-link class="nav-link text-muted link" to="/register">Register</router-link>
-          </li>
-          <li class="nav-item dropdown active" v-if="auth">
-            <a
-              class="nav-link link dropdown-toggle text-muted"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >{{ user.name }}</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <router-link class="dropdown-item" to="/home">Home</router-link>
-              <a @click.prevent="logout" class="dropdown-item" href="#">Logout</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <transition name="slide-fade">
-      <router-view></router-view>
-    </transition>
-  </main>
+  <v-app>
+    <v-navigation-drawer temporary v-model="mainDrawer.show" :mini-variant="mainDrawer.mini" app>
+      <v-list>
+        <v-list-item to="/">
+          <v-list-item-icon>
+            <v-icon>mdi-home-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item to="/about">
+          <v-list-item-icon>
+            <v-icon>mdi-information-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>About</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item to="/login">
+          <v-list-item-icon>
+            <v-icon>mdi-login</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Login</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item to="/register">
+          <v-list-item-icon>
+            <v-icon>mdi-account-plus-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Register</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-btn class="d-none d-sm-flex" icon @click.prevent="$store.commit('miniDrawer')">
+        <v-icon>{{ mainDrawer.mini ? 'mdi-chevron-right' : 'mdi-chevron-left' }}</v-icon>
+      </v-btn>
+      <v-app-bar-nav-icon @click.prevent="$store.commit('changeDrawer')"></v-app-bar-nav-icon>
+      <v-toolbar-title>{{ $store.state.appName }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="d-none d-sm-flex">
+        <v-btn text to="/">Home</v-btn>
+        <v-btn text to="/about">About</v-btn>
+        <v-btn text to="/login">Login</v-btn>
+        <v-btn text to="/register">Register</v-btn>
+      </v-toolbar-items>
+    </v-app-bar>
+    <v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+
+    <v-footer app>
+      <!-- -->
+    </v-footer>
+    <v-bottom-navigation app color="primary" grow>
+      <v-btn to="/">
+        <span>Home</span>
+        <v-icon>mdi-home-outline</v-icon>
+      </v-btn>
+
+      <v-btn to="/about">
+        <span>About</span>
+        <v-icon>mdi-information-outline</v-icon>
+      </v-btn>
+
+      <v-btn to="/login">
+        <span>Login</span>
+        <v-icon>mdi-login</v-icon>
+      </v-btn>
+
+      <v-btn to="/register">
+        <span>Register</span>
+        <v-icon>mdi-account-plus-outline</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+  </v-app>
 </template>
 
 <script>
 export default {
-  metaInfo: {
-    title: "Welcome",
-    titleTemplate: "%s | My spa",
-    htmlAttrs: {
-      lang: "en",
-      amp: true
-    }
-  },
-  methods: {
-    logout() {
-      this.$store.commit("logout");
-    }
-  },
   computed: {
-    auth() {
-      return this.$store.getters.auth;
-    },
-    user() {
-      return this.$store.state.user;
-    },
-    loading() {
-      return this.$store.state.loading;
-    }
-  },
-  beforeCreate() {
-    if (localStorage.token !== "") {
-      axios
-        .get("/api/user")
-        .then(res => {
-          this.$store.commit("sessionAvailable", res.data);
-        })
-        .catch(() => {
-          this.$store.commit("noSession");
-        });
-    } else {
-      this.$store.commit("noSession");
+    mainDrawer() {
+      return this.$store.state.mainDrawer;
     }
   }
 };
 </script>
 
 <style>
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 </style>
