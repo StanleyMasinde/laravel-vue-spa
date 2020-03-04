@@ -13,7 +13,8 @@
         "php": "^7.2.5",
         "fideloper/proxy": "^4.2",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.1"
+        "laravel/tinker": "^2.1",
+        "stannlee/laravel-prerender": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
