@@ -11,7 +11,7 @@ class Route {
         return {
             path: path,
             name: name,
-            component: () => import(/* webpackChunkName: 'views/view' */`../../../views/${component.replace('.', '/')}.vue`).then(module => module).catch(err => console.log(err)),
+            component: () => import(/* webpackChunkName: 'views/view' */`../../../views/${component.split('.').join('/')}.vue`).then(module => module).catch(err => console.log(err)),
             meta: meta
         }
     }

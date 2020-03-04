@@ -22,6 +22,8 @@ const routes = [
     route.get('/about', 'About Page', 'About'),
     route.get('/login', 'Login', 'auth.Login'),
     route.get('/register', 'Register', 'auth.Register'),
+    route.get('/password/reset', 'Password Reset', 'auth.password.Reset'),
+    route.get('*', 'Not Found', 'Error.404')
 ]
 
 export default routes

@@ -15,4 +15,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .options({
         extractVueStyles: true
-    })
+    }).browserSync('localhost:8000')
