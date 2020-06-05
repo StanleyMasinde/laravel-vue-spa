@@ -9,10 +9,16 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "nuxt": "^2.12.2"
+    "css-loader": "^3.5.3",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.12.2",
+    "sass-loader": "^8.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "repository": {
     "type": "git",
