@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +13,6 @@
 |
 */
 
-Route::fallback(function () {
+Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
