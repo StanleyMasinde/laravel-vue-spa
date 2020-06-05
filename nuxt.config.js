@@ -36,6 +36,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   build: {
+    extractCSS: true,
+    filenames: {
+   //   chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[contenthash].js'
+    },
     /*
      ** You can extend webpack config here
      */
