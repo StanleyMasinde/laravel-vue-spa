@@ -12,7 +12,4 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        extractVueStyles: true
-    }).browserSync('localhost:8000')
+    .sass('resources/sass/app.scss', 'public/css');
