@@ -1,7 +1,9 @@
 <template>
   <div class="flex-center position-ref full-height">
     <div class="content">
-      <div class="title m-b-md">Laravel</div>
+      <div class="title m-b-md">
+        Laravel
+      </div>
 
       <div class="links">
         <a href="https://laravel.com/docs">Docs</a>
@@ -17,14 +19,12 @@
   </div>
 </template>
 
-
-
 <style>
 html,
 body {
   background-color: #fff;
   color: #636b6f;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 200;
   height: 100vh;
   margin: 0;
@@ -72,4 +72,3 @@ body {
   margin-bottom: 30px;
 }
 </style>
-    

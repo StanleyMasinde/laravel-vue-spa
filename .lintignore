@@ -1,0 +1,5 @@
+docs/
+vendor/
+node_modules/
+resources/.nuxt
+resources/dist
