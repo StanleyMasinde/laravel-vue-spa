@@ -27,7 +27,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .lintignore .",
-    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .lintignore ."
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .lintignore .",
+    "precomit": "lint --fix"
   },
   "repository": {
     "type": "git",
