@@ -2,7 +2,7 @@
   "name": "vue-laravel-spa",
   "version": "4.0.1",
   "description": "Single page applications with laravel and vuejs",
-  "main": "webpack.mix.js",
+  "main": "nuxt.config.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
@@ -28,7 +28,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .lintignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .lintignore .",
-    "precomit": "lint --fix"
+    "precommit": "npm run lint --fix"
   },
   "repository": {
     "type": "git",
