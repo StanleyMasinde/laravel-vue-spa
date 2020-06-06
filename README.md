@@ -12,8 +12,8 @@ It makes it easy to to build single page applications using [Vuejs](https://vuej
 
 ## Features
 1. Single Page application
-2. Progrsssive Web app ready
-3. Uses Bootsrap CSS framework
+2. Progressive Web app ready
+3. Using Nuxtjs
 
 [Documentation](https://stannlee.github.io/vue-laravel-spa)
 _more docs coming soon_
