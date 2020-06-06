@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./resources",
+      "paths": {
+        "~/*": ["./resources/*"],
+        "@/*": ["./resources/*"],
+        "~~/*": ["./resources/*"],
+        "@@/*": ["./resources/*"]
+      }
+    },
+    "exclude": ["node_modules", "resources/.nuxt", "resources/dist"]
+  }
+  
